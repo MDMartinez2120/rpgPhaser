@@ -26,10 +26,10 @@ let keyD;
 let keyW;
 
 function preload(){
-    this.load.image('background', '/assets/Backdrop.png');
-    this.load.spritesheet('player', '/assets/sprites/Herofull.png', {frameWidth: 32, frameHeight: 32});
-    this.load.image('platform', '/assets/Platform.png');
-
+    this.load.image('background', '/assets/Terrain.png');
+    this.load.spritesheet('player', '/assets/sprites/herotop.png', {frameWidth: 16, frameHeight: 16});
+    this.load.image('platform', '/assets/playerhouse.png', {frameWidth: 64, frameHeight: 64});
+    this.load.image('treeOne', 'assets/tree1.png', {frameWidth: 32, frameHeight: 32});
 }
 
 function create(){
@@ -39,31 +39,28 @@ function create(){
     //PLATFORMS\\
     platforms = this.physics.add.staticGroup();
 
-    platforms.create(400, 530,  'platform');
+    platforms.create(200, 250, 'platform').setScale(5);
 
-    platforms.create(600, 400, 'platform');
-    platforms.create(50, 250, 'platform');
-    platforms.create(750, 220, 'platform');
 
 
 
     //CHARACTER SPRITE\\
     this.anims.create({
         key: 'right',
-        frames: this.anims.generateFrameNumbers('player', { start: 4, end: 6 }),
+        frames: this.anims.generateFrameNumbers('player', { start: 3, end: 4 }),
         frameRate: 3,
         repeat: 0
     });
 
     this.anims.create({
         key: 'turn',
-        frames: [{key: 'player', frame: 3}],
+        frames: [{key: 'player', frame: 2}],
         frameRate:1
     });
 
     this.anims.create({
         key: 'left',
-        frames: this.anims.generateFrameNumbers('player', { start: 0, end: 2 }),
+        frames: this.anims.generateFrameNumbers('player', { start: 0, end: 1 }),
         frameRate: 3,
         repeat: 0
     });
